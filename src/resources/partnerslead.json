@@ -1,0 +1,99 @@
+[
+  {
+    "createdAt": "2024-03-22 (21:16)",
+    "country": "Azerbaijan",
+    "ilnesses": "Lymphoma",
+    "flag": "../../public/image/az.webp",
+    "language": "az",
+    "treatments": "Heart Valve Replacement",
+    "departments": "Neurosurgery",
+    "attach": "0 file (s)",
+    "cost": "AZN 7",
+    "diognostic": "CT coronary angiography"
+  },
+  {
+    "createdAt": "2024-03-20 (21:34)",
+    "country": "Azerbaijan",
+    "treatments": "Retinal detachment surgery",
+    "ilnesses": "Myeloma",
+    "flag": "../../public/image/az.webp",
+    "language": "az",
+    "departments": "Endocrinology",
+    "attach": "0 file (s)",
+    "cost": "AZN 7",
+    "diognostic": "Helicobacter Pylori test"
+  },
+  {
+    "createdAt": "2024-03-22 (11:15)",
+    "country": "Turkey",
+    "ilnesses": "Umbilical hernia",
+    "treatments": "Mastectomy",
+    "flag": "../../public/image/tr.png",
+    "language": "tr",
+    "departments": "Orthopedics",
+    "attach": "0 file (s)",
+    "cost": "tl 8.33",
+    "diognostic": "CT coronary angiography"
+  },
+  {
+    "createdAt": "2024-03-20 (16:53)",
+    "country": "Turkey",
+    "treatments": "Laparoscopic nephrectomy",
+    "ilnesses": "Adenoids",
+    "flag": "../../public/image/tr.png",
+    "language": "tr",
+    "departments": "Oncology",
+    "attach": "0 file (s)",
+    "cost": "tl 8.33",
+    "diognostic": "PET/CT"
+  },
+
+  {
+    "createdAt": "2024-03-21 (22:45)",
+    "country": "Russian",
+    "treatments": "Coronary angiography",
+    "ilnesses": "Obesity",
+    "flag": "../../public/image/ru.webp",
+    "language": "ru",
+    "departments": "Cardiology",
+    "attach": "0 file (s)",
+    "cost": "rubl 8.33",
+    "diognostic": "Holter monitoring"
+  },
+  {
+    "createdAt": "2024-03-21 (22:45)",
+    "country": "Russian",
+    "ilnesses": "Varicocele",
+    "treatments": "Myomectomy (removal of uterine fibroids)",
+    "flag": "../../public/image/ru.webp",
+    "language": "ru",
+    "departments": "Gastroenterology",
+    "attach": "0 file (s)",
+    "cost": "rubl 8.33",
+    "diognostic": "MRI of one area"
+  },
+  {
+    "createdAt": "2024-03-21 (04:32)",
+    "country": "English",
+    "ilnesses": "Herniated disk",
+    "treatments": "Facelift surgery",
+    "flag": "../../public/image/en.jpg",
+    "language": "en",
+    "departments": "Neurology",
+    "attach": "0 file (s)",
+    "cost": "usd 8.33",
+    "diognostic": "Angiography"
+  },
+  {
+    "createdAt": "2024-03-21 (04:32)",
+    "country": "English",
+    "treatments": "Liposuction",
+    "ilnesses": "Uterine fibroids",
+    "flag": "../../public/image/en.jpg",
+    "language": "en",
+    "departments": "Ophthalmology",
+    "attach": "40 file (s)",
+    "cost": "usd 8.33",
+    "diognostic": "Colonoscopy"
+  }
+]

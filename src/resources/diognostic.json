@@ -1,0 +1,23 @@
+[
+  {
+    "name": "PET/CT"
+  },
+  {
+    "name": "MRI of one area"
+  },
+  {
+    "name": "Colonoscopy"
+  },
+  {
+    "name": "CT coronary angiography"
+  },
+  {
+    "name": "Holter monitoring"
+  },
+  {
+    "name": "Angiography"
+  },
+  {
+    "name": "Helicobacter Pylori test"
+  }
+]

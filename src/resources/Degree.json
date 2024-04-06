@@ -1,0 +1,8 @@
+[
+  { "name": "Professor", "id": "1" },
+  { "name": "Medical Doctor", "id": "2" },
+  { "name": "Associate Professor", "id": "3" },
+  { "name": "Health Professor", "id": "4" },
+  { "name": "Medical scientist", "id": "5" },
+  { "name": "Healthcare assistent", "id": "6" }
+]
