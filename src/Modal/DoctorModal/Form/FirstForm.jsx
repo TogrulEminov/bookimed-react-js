@@ -4,20 +4,48 @@ import YearCalc from '../../../Components/YearCalc';
 import noImage from '../../../assets/noImage.jpg';
 import specialities from '../../../resources/speciality.json';
 import languages from '../../../resources/languages.json';
-const FirstForm = ({
-  year,
-  setYear,
-  speciality,
-  setSpeciality,
-  language,
-  setLanguage,
-}) => {
+import { useCheckboxState, useFormStore } from '../../../zustand/ZustandOne';
+import { useState } from 'react';
+const FirstForm = () => {
+  const { formState, updateFormState } = useFormStore();
+  const handleNameChange = (e) => {
+    const newName = e.target.value;
+    updateFormState({ value: { ...formState.value, name: newName } });
+  };
+  const handleVideoChange = (e) => {
+    const newVideo = e.target.value;
+    updateFormState({ value: { ...formState.value, video: newVideo } });
+  };
+  const onlineCheckbox = useCheckboxState('online');
+  const publishCheckbox = useCheckboxState('publish');
+  const setSpeciality = (newSpeciality) => {
+    updateFormState({
+      value: { ...formState.value, speciality: newSpeciality },
+    });
+  };
+
+  const setLanguage = (newLanguage) => {
+    updateFormState({ value: { ...formState.value, language: newLanguage } });
+  };
+  const [imgPreview, setImgPreview] = useState(null);
+
+  const handleImgUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImgPreview(reader.result);
+        updateFormState({ value: { ...formState.value, img: reader.result } });
+      };
+      reader.readAsDataURL(file);
+    }
+  };
   return (
     <div className="row">
       <div className="lg:col-lg-2">
         <figure className="w-[100px] h-[100px] border overflow-hidden mx-auto border-[#ddd] rounded-full mb-3">
           <img
-            src={noImage}
+            src={imgPreview || noImage}
             alt="profile"
             className="w-full h-full object-cover"
           />
@@ -29,6 +57,7 @@ const FirstForm = ({
             id="upload"
             type="file"
             accept="image/*"
+            onChange={handleImgUpload}
             className="sr-only cursor-pointer"
           />
           Select Doctor's modal
@@ -42,6 +71,8 @@ const FirstForm = ({
           <input
             type="text"
             id="nameSurname"
+            value={formState.value.name || ''}
+            onChange={handleNameChange}
             placeholder="Write the doctor's name and surname"
             className="p-2 min-h-[38px] rounded-lg border-solid w-full border border-[#ddd] outline-none block"
           />
@@ -50,7 +81,7 @@ const FirstForm = ({
           <SelectOne />
         </div>
         <div className="w-full mb-2">
-          <YearCalc year={year} setYear={setYear} />
+          <YearCalc />
         </div>
         <div className="w-full mb-2">
           <h4 className="mb-2 font-medium text-base text-[gray]">
@@ -59,7 +90,7 @@ const FirstForm = ({
           </h4>
           <SelectMulti
             data={specialities}
-            selected={speciality}
+            selected={formState.value.speciality}
             setSelected={setSpeciality}
             title="Choose speciality"
           />
@@ -70,7 +101,7 @@ const FirstForm = ({
           </h4>
           <SelectMulti
             data={languages}
-            selected={language}
+            selected={formState.value.language}
             setSelected={setLanguage}
             title="Choose language"
           />
@@ -80,8 +111,10 @@ const FirstForm = ({
             Doctor's Video presentation (YouTube links only)
           </h4>
           <input
-            type="text"
+            type="url"
             placeholder="https://www.youtube.com/watch?v="
+            value={formState.value.video || ''}
+            onChange={handleVideoChange}
             className="p-2 min-h-[38px] rounded-lg border-solid w-full border border-[#ddd] outline-none block"
           />
         </div>
@@ -89,10 +122,14 @@ const FirstForm = ({
           <label htmlFor="consultation" className="cursor-pointer">
             <input
               type="checkbox"
+              {...onlineCheckbox}
               id="consultation"
               className="accent-[#15803d] focus:accent-[#15803d]"
             />
-            <span className={`ml-2 `}>
+            <span
+              className={`ml-2 ${
+                formState.value.online ? 'text-greenown' : 'text-[#171717]'
+              }`}>
               The doctor's gives an online consultation
             </span>
           </label>
@@ -100,9 +137,13 @@ const FirstForm = ({
             <input
               type="checkbox"
               id="publish"
+              {...publishCheckbox}
               className="accent-[#15803d] focus:accent-[#15803d]"
             />
-            <span className={`ml-2   text-[#15803d]  `}>
+            <span
+              className={`ml-2   ${
+                formState.value.publish ? 'text-greenown' : 'text-[#171717]'
+              } `}>
               Publish on the website
             </span>
           </label>

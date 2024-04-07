@@ -1,13 +1,14 @@
 import { Link, NavLink } from 'react-router-dom';
-import Progress_bar from '../Components/ProgressBar';
 import UploadImage from '../Modal/UploadImage';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import ClinicsPhoto from '../Section/Clinic/ClinicsPhoto';
 import WarningSection from '../Section/Clinic/WarningSection';
 import EditName from '../Section/Clinic/EditName';
 import EditFoundation from '../Section/Clinic/EditFoundation';
 import Icons from '../assets/Icons/icons';
 import Doctors from '../Section/Clinic/Doctors/Doctors';
+import ClinicLicence from '../Section/Clinic/ClinicLicence';
+import BeforeAndAfter from '../Section/Clinic/BeforeAndAfter';
 
 const Clinic = () => {
   const [open, setOpen] = useState(false);
@@ -26,6 +27,8 @@ const Clinic = () => {
   const edit =
     localStorage.getItem('editedValue') ||
     localStorage.getItem('editedValueFoundation');
+
+  const clinic = localStorage.getItem('licences') || 0;
   return (
     <>
       <div className="row gap-y-6 w-full">
@@ -57,9 +60,7 @@ const Clinic = () => {
               Get more from Bookimed by setting up the basic data of your
               clinic’s page.
             </p>
-            <div className="my-5">
-              <Progress_bar />
-            </div>
+            <div className="my-5">Porgress</div>
             <ul>
               <li>
                 <NavLink
@@ -132,8 +133,20 @@ const Clinic = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink className="py-3.5 hover:bg-[#f0fdf4] px-4 font-medium flex items-center text-sm text-[#171717]">
-                  <span className="border rounded-full w-[14px] h-[14px] border-[#737373] block"></span>
+                <NavLink
+                  className={`py-3.5 hover:bg-[#f0fdf4]  px-4 font-medium flex items-center text-sm  ${
+                    clinic.length > 0 ? 'text-[#15803d]' : 'text-[#171717]'
+                  }`}>
+                  <span
+                    className={`border flex items-center justify-center rounded-full w-[14px] h-[14px] ${
+                      clinic.length ? 'text-[#15803d]' : 'border-[#737373]'
+                    } `}>
+                    {clinic.length ? (
+                      <Icons.Check className="border-none" />
+                    ) : (
+                      ''
+                    )}
+                  </span>
                   <span className="ml-4"> License</span>
                 </NavLink>
               </li>
@@ -147,7 +160,10 @@ const Clinic = () => {
             <EditName />
             <EditFoundation />
           </div>
+          <BeforeAndAfter />
           <Doctors />
+
+          <ClinicLicence />
         </div>
       </div>
 

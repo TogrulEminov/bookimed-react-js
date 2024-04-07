@@ -1,27 +1,36 @@
-import { useState } from 'react';
-
+import { useFormStore } from '../zustand/ZustandOne';
 const YearCalc = () => {
-  const [year, setYear] = useState({
-    min: 1950,
-    max: new Date().getFullYear(),
-    current: new Date().getFullYear(),
-  });
+  const { formState, updateFormState } = useFormStore();
+
+  if (!formState || !formState.value || !formState.value.year) {
+    return null;
+  }
 
   const handleDecrement = () => {
-    if (year?.current > year.min) {
-      setYear((prevYear) => ({
-        ...prevYear,
-        current: prevYear.current - 1,
-      }));
+    if (formState.value.year.current > formState.value.year.min) {
+      updateFormState({
+        value: {
+          ...formState.value,
+          year: {
+            ...formState.value.year,
+            current: formState.value.year.current - 1,
+          },
+        },
+      });
     }
   };
 
   const handleIncrement = () => {
-    if (year?.current < year.max) {
-      setYear((prevYear) => ({
-        ...prevYear,
-        current: prevYear.current + 1,
-      }));
+    if (formState.value.year.current < formState.value.year.max) {
+      updateFormState({
+        value: {
+          ...formState.value,
+          year: {
+            ...formState.value.year,
+            current: formState.value.year.current + 1,
+          },
+        },
+      });
     }
   };
 
@@ -35,7 +44,9 @@ const YearCalc = () => {
           <button
             type="button"
             className={`w-16 block border border-blue-50 h-full bg-[#eee] ${
-              year.current === 1950 ? 'cursor-not-allowed' : 'cursor-pointer'
+              formState.value.year.current === 1950
+                ? 'cursor-not-allowed'
+                : 'cursor-pointer'
             }`}
             onClick={handleDecrement}>
             -
@@ -44,20 +55,25 @@ const YearCalc = () => {
             type="number"
             className="w-full h-full outline-none border-none p-2 text-center"
             maxLength={4}
-            value={year.current}
+            value={formState.value.year.current}
             readOnly
           />
           <button
             type="button"
             className={`w-16 block border border-blue-50 h-full bg-[#eee] ${
-              year.current ? 'cursor-pointer' : 'cursor-not-allowed'
+              formState.value.year.current === formState.value.year.max
+                ? 'cursor-not-allowed'
+                : 'cursor-pointer'
             }`}
             onClick={handleIncrement}>
             +
           </button>
         </div>
       </div>
-      <p>{new Date().getFullYear() - year.current} years of experience</p>
+      <p>
+        {new Date().getFullYear() - formState.value.year.current} years of
+        experience
+      </p>
     </div>
   );
 };
