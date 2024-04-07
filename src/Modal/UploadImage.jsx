@@ -101,7 +101,7 @@ const UploadImage = ({ modal, closeModal }) => {
                       <img
                         src={array[index + 1]}
                         className="w-full h-full object-cover"
-                        alt={`Image ${index + 2}`}
+                        alt={`text ${index + 2}`}
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center">
@@ -169,7 +169,7 @@ const UploadImage = ({ modal, closeModal }) => {
                 multiple={true}
                 onChange={handleImage}
               />
-              <Icons.plus className="text-" />
+              <Icons.Plus className="text-" />
             </label>
             <div className="flex items-center gap-x-3 flex-wrap justify-center my-3">
               <button

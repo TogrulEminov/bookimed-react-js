@@ -16,7 +16,7 @@ const Doctors = () => {
               onClick={handleOpen}
               className="w-full h-[200px] border-2 border-[#a3cc0e] flex items-center justify-center">
               <div className="w-fit h-fit text-center">
-                <Icons.plus className="fill-[#a3cc0e] mx-auto mb-2 w-10 h-10" />
+                <Icons.Plus className="fill-[#a3cc0e] mx-auto mb-2 w-10 h-10" />
                 <span className="font-semibold text-lg text-[#a3cc0e]">
                   Add Doctor
                 </span>

@@ -1,0 +1,46 @@
+[
+  {
+    "name": "Anesthesiologits",
+    "id": 1
+  },
+  {
+    "name": "Cardiologist",
+    "id": 2
+  },
+  {
+    "name": "Interventional cardiologist",
+    "id": 3
+  },
+  {
+    "name": "Congenital cardiac specialist",
+    "id": 3
+  },
+  {
+    "name": "Dietian",
+    "id": 4
+  },
+  {
+    "name": "Dermatologist",
+    "id": 5
+  },
+  {
+    "name": "Dentist",
+    "id": 6
+  },
+  {
+    "name": "Oral rehabilitation specialist",
+    "id": 7
+  },
+  {
+    "name": "Orthodontist",
+    "id": 8
+  },
+  {
+    "name": "Implantologist",
+    "id": 9
+  },
+  {
+    "name": "Periodontist",
+    "id": 10
+  }
+]

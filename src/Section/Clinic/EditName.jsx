@@ -41,7 +41,7 @@ const EditName = () => {
           <button
             onClick={handleOpen}
             className="border font-semibold md:ml-4 p-2 px-5 w-full max-w-full md:max-w-[100px] flex items-center justify-center text-[#a3cc0e] border-[#a3cc0e]  rounded-xl md:rounded-3xl">
-            <Icons.edit className="w-3 h-3 mr-3 fill-[#a3cc0e]" />
+            <Icons.Edit className="w-3 h-3 mr-3 fill-[#a3cc0e]" />
             Edit
           </button>
         </div>

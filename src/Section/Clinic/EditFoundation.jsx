@@ -66,7 +66,7 @@ const EditFoundation = () => {
             <button
               onClick={handleOpen}
               className="border max-w-full lg:max-w-[100px] w-full font-semibold md:ml-4  md:py-3 p-2 px-5 flex items-center justify-center text-[#a3cc0e] border-[#a3cc0e] rounded-xl  md:rounded-2xl">
-              <Icons.edit className="w-3 h-3 mr-3 fill-[#a3cc0e]" />
+              <Icons.Edit className="w-3 h-3 mr-3 fill-[#a3cc0e]" />
               Edit
             </button>
           </div>

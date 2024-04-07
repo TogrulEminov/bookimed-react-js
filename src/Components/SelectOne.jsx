@@ -18,11 +18,12 @@ const SelectOne = () => {
     };
   }, []);
   return (
-    <div>
-      <label className="text-base block mb-1 font-normal">Degree</label>
+    <div className='relative'>
+      <label className="text-base block mb-2 font-normal">Degree</label>
       <button
         type="button"
-        className="p-2 min-h-[38px] border border-[#ddd] rounded-sm">
+        onClick={() => setOpen(!open)}
+        className="p-2 flex items-center justify-between w-full rounded-lg min-h-[38px] border border-[#ddd]">
         {selected ? (
           <span className="text-balance font-normal text-[#171717]">
             {selected}
@@ -32,25 +33,27 @@ const SelectOne = () => {
             Choose a degree
           </span>
         )}
-        <Icons.ArrowDown className={open ? 'rotate-90' : ''} />
+        <Icons.Arrow className={open ? 'rotate-180' : ''} />
       </button>
       <ul
         ref={ref}
-        className={`bg-white mt-2 w-full z-[999] absolute transition-all shadow-xl border rounded-lg py-2 border-[#ddd] ${
+        className={`bg-white mt-2 w-full rounded-xl max-h-[200px] overflow-y-auto z-[999] py-3 absolute transition-all shadow-xl border border-[#ddd] ${
           open
             ? 'max-h-[400px] visible overflow-visible opacity-100'
             : 'overflow-hidden opacity-0 invisible max-h-0'
         } `}>
         {data?.map((item, index) => {
-          <li
-            className="hover:text-[#15803d] text-[#171717] text-base"
-            onClick={() => {
-              setSelected(item?.name);
-              setOpen(false);
-            }}
-            key={index}>
-            {item?.name}
-          </li>;
+          return (
+            <li
+              className="hover:text-[#15803d] hover:bg-[#eee] p-2 px-3 cursor-pointer text-[#171717] text-base"
+              onClick={() => {
+                setSelected(item?.name);
+                setOpen(false);
+              }}
+              key={index}>
+              {item?.name}
+            </li>
+          );
         })}
       </ul>
     </div>

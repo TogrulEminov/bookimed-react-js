@@ -36,7 +36,7 @@ const ClinicsPhoto = ({ handleOpen }) => {
                     <img
                       src={array[index + 1]}
                       className="w-full h-full object-cover"
-                      alt={`Image ${index + 2}`}
+                      alt={`text ${index + 2}`}
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center">
@@ -60,7 +60,7 @@ const ClinicsPhoto = ({ handleOpen }) => {
         </div>
       </div>
       <button onClick={handleOpen} className="absolute bottom-5 right-5">
-        <Icons.camera />
+        <Icons.Camera />
       </button>
     </section>
   );

@@ -72,7 +72,7 @@ const Clinic = () => {
                       array?.length >= 1 ? 'text-[#15803d]' : 'border-[#737373]'
                     } `}>
                     {array?.length >= 1 ? (
-                      <Icons.check className="border-none" />
+                      <Icons.Check className="border-none" />
                     ) : (
                       ''
                     )}
@@ -90,7 +90,7 @@ const Clinic = () => {
                     className={`border flex items-center justify-center rounded-full w-[14px] h-[14px] ${
                       edit ? 'text-[#15803d]' : 'border-[#737373]'
                     } `}>
-                    {edit ? <Icons.check className="border-none" /> : ''}
+                    {edit ? <Icons.Check className="border-none" /> : ''}
                   </span>
                   <span className="ml-4">Basic information</span>
                 </NavLink>
