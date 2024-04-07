@@ -66,10 +66,9 @@ const UploadImage = ({ modal, closeModal }) => {
         <div className="border border-[#ddd] rounded-xl p-4  items-center mb-4 flex flex-wrap ">
           <Icons.Warning />
           <span className="text-base  ml-4">
-            {' '}
             Add as many high quality photos as possible so clients can see the
             clinic in every detail. Maximum file size is 10 MB. Make sure your
-            photos have .jpg, .jpeg, file types{' '}
+            photos have .jpg, .jpeg, file types
           </span>
         </div>
         <div className="flex flex-wrap min-h-[350px] h-full lg:min-h-full lg:h-[350px] border border-[#dfe1e5]">

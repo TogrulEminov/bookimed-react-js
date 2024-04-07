@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import Icons from '../assets/Icons/icons';
-import data from '../resources/Degree.json';
-const SelectOne = () => {
+
+const SelectOne = ({ data, selected, setSelected, disabled, label, title }) => {
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState('');
   const ref = useRef();
   const handleOutsideClick = (event) => {
     if (ref.current && !ref.current.contains(event.target)) {
@@ -18,9 +17,14 @@ const SelectOne = () => {
     };
   }, []);
   return (
-    <div className='relative'>
-      <label className="text-base block mb-2 font-normal">Degree</label>
+    <div className="relative">
+      {label && (
+        <label className="capitalize text-base block mb-2 font-normal">
+          {label}
+        </label>
+      )}
       <button
+        disabled={disabled}
         type="button"
         onClick={() => setOpen(!open)}
         className="p-2 flex items-center justify-between w-full rounded-lg min-h-[38px] border border-[#ddd]">
@@ -29,15 +33,13 @@ const SelectOne = () => {
             {selected}
           </span>
         ) : (
-          <span className="text-balance font-normal text-[gray]">
-            Choose a degree
-          </span>
+          <span className="text-balance font-normal text-[gray]">{title}</span>
         )}
         <Icons.Arrow className={open ? 'rotate-180' : ''} />
       </button>
       <ul
         ref={ref}
-        className={`bg-white mt-2 w-full rounded-xl max-h-[200px] overflow-y-auto z-[999] py-3 absolute transition-all shadow-xl border border-[#ddd] ${
+        className={`bg-white mt-2 w-full  rounded-xl max-h-[150px] overflow-y-auto z-[999] py-3 absolute transition-all shadow-xl border border-[#ddd] ${
           open
             ? 'max-h-[400px] visible overflow-visible opacity-100'
             : 'overflow-hidden opacity-0 invisible max-h-0'

@@ -6,6 +6,7 @@ import specialities from '../../../resources/speciality.json';
 import languages from '../../../resources/languages.json';
 import { useCheckboxState, useFormStore } from '../../../zustand/ZustandOne';
 import { useState } from 'react';
+import data from '../../../resources/Degree.json';
 const FirstForm = () => {
   const { formState, updateFormState } = useFormStore();
   const handleNameChange = (e) => {
@@ -21,6 +22,11 @@ const FirstForm = () => {
   const setSpeciality = (newSpeciality) => {
     updateFormState({
       value: { ...formState.value, speciality: newSpeciality },
+    });
+  };
+  const setDegree = (newSpeciality) => {
+    updateFormState({
+      value: { ...formState.value, degree: newSpeciality },
     });
   };
 
@@ -78,7 +84,13 @@ const FirstForm = () => {
           />
         </div>
         <div className="w-full mb-2">
-          <SelectOne />
+          <SelectOne
+            data={data}
+            setSelected={setDegree}
+            selected={formState.value.degree}
+            label="degree"
+            title="Select degree"
+          />
         </div>
         <div className="w-full mb-2">
           <YearCalc />

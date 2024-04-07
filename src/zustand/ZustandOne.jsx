@@ -5,6 +5,7 @@ const FORM_STATE = {
     img: '',
     name: '',
     online: false,
+    degree:"",
     publish: true,
     year: {
       min: 1950,

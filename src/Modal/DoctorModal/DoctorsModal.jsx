@@ -53,8 +53,7 @@ const DoctorsModal = ({ modal, closeModal }) => {
       return;
     }
     nextForm();
-  };
-  console.log(formState.value);
+  }; 
   const handleSave = (e) => {
     e.preventDefault();
     const {
