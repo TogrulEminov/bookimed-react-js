@@ -4,16 +4,6 @@ import { useFormStore } from '../../../zustand/ZustandOne';
 const ThirdModal = () => {
   const { formState, updateFormState } = useFormStore();
 
-  useEffect(() => {
-    const storedFormState = JSON.parse(localStorage.getItem('formState'));
-    if (storedFormState) {
-      updateFormState({ value: storedFormState });
-      if (storedFormState.video) {
-        updateFormState({ value: { ...formState.value, video: storedFormState.video } });
-      }
-    }
-  }, []);
-
   const handleAboutChange = (e) => {
     const newName = e.target.value;
     updateFormState({ value: { ...formState.value, doctorAbout: newName } });
@@ -22,11 +12,13 @@ const ThirdModal = () => {
   const handleCvChange = (e) => {
     const newCv = e.target.value;
     updateFormState({ value: { ...formState.value, CV: newCv } });
+    console.log({ value: { ...formState.value, CV: newCv } })
   };
 
   const handleVideoChange = (e) => {
     const newVideo = e.target.value;
     updateFormState({ value: { ...formState.value, video: newVideo } });
+    console.log({ value: { ...formState.value, video: newVideo } })
   };
 
   return (

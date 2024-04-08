@@ -9,9 +9,11 @@ import { useState } from 'react';
 import data from '../../../resources/Degree.json';
 const FirstForm = () => {
   const { formState, updateFormState } = useFormStore();
+
   const handleNameChange = (e) => {
     const newName = e.target.value;
     updateFormState({ value: { ...formState.value, name: newName } });
+    console.log({ value: { ...formState.value, name: newName } })
   };
   const handleVideoChange = (e) => {
     const newVideo = e.target.value;
@@ -139,9 +141,8 @@ const FirstForm = () => {
               className="accent-[#15803d] focus:accent-[#15803d]"
             />
             <span
-              className={`ml-2 ${
-                formState.value.online ? 'text-greenown' : 'text-[#171717]'
-              }`}>
+              className={`ml-2 ${formState.value.online ? 'text-greenown' : 'text-[#171717]'
+                }`}>
               The doctor's gives an online consultation
             </span>
           </label>
@@ -153,9 +154,8 @@ const FirstForm = () => {
               className="accent-[#15803d] focus:accent-[#15803d]"
             />
             <span
-              className={`ml-2   ${
-                formState.value.publish ? 'text-greenown' : 'text-[#171717]'
-              } `}>
+              className={`ml-2   ${formState.value.publish ? 'text-greenown' : 'text-[#171717]'
+                } `}>
               Publish on the website
             </span>
           </label>

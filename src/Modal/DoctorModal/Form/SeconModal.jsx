@@ -5,7 +5,7 @@ import { useFormStore } from '../../../zustand/ZustandOne';
 
 const SeconModal = ({ data, placeholder, title }) => {
   const { formState, updateFormState } = useFormStore();
-  const [selected, setSelected] = useState(formState.value.doctorSpec || []);
+  const [selected, setSelected] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [check, setCheck] = useState(false);
 
@@ -14,12 +14,14 @@ const SeconModal = ({ data, placeholder, title }) => {
       ? selected.filter((item) => item !== value)
       : [...selected, value];
     setSelected(newSelected);
+    console.log({ value: { ...formState.value, doctorSpec: newSelected } })
     updateFormState({ value: { ...formState.value, doctorSpec: newSelected } });
   };
 
   const removeSelected = (itemToRemove) => {
     const updatedSelected = selected.filter((item) => item !== itemToRemove);
     setSelected(updatedSelected);
+    console.log(updatedSelected)
     updateFormState({
       value: { ...formState.value, doctorSpec: updatedSelected },
     });
@@ -63,7 +65,7 @@ const SeconModal = ({ data, placeholder, title }) => {
       <h3 className="text-lg text-[#171717] mb-5">
         Doctor's medical fields (e.g. neurology, plastic surgery, etc)
       </h3>
-      {Array.isArray(selected) && (
+      {Array.isArray(selected) && Array.isArray(selected) && selected.length > 0 &&(
         <div className="flex items-center gap-2 flex-wrap mb-5">
           {selected.map((item, index) => (
             <div
@@ -125,25 +127,22 @@ const SeconModal = ({ data, placeholder, title }) => {
                 <div key={item.name} className="mb-2">
                   <span
                     className={`text-sm mb-2 flex items-center group cursor-pointer hover:text-black
-              ${
-                Array.isArray(selected) && selected.includes(item.name)
-                  ? 'text-[#15803d]'
-                  : ''
-              }
-              ${
-                item.name.toLowerCase().startsWith(inputValue.toLowerCase())
-                  ? 'block'
-                  : ''
-              }
+              ${Array.isArray(selected) && selected.includes(item.name)
+                        ? 'text-[#15803d]'
+                        : ''
+                      }
+              ${item.name.toLowerCase().startsWith(inputValue.toLowerCase())
+                        ? 'block'
+                        : ''
+                      }
               `}
                     onClick={() => toggleSelection(item.name)}>
                     <span
                       className={`flex items-center justify-center w-[16px] h-[16px] border rounded-[4px] border-[#d4d4d4] group-hover:border-[#15803d]
-                ${
-                  Array.isArray(selected) && selected.includes(item.name)
-                    ? 'bg-[#15803d] border-[#15803d] text-white'
-                    : ''
-                }
+                ${Array.isArray(selected) && selected.includes(item.name)
+                          ? 'bg-[#15803d] border-[#15803d] text-white'
+                          : ''
+                        }
                 `}>
                       {Array.isArray(selected) &&
                         selected.includes(item.name) && <FaCheck size={10} />}

@@ -7,7 +7,7 @@ import { useFormStore } from '../../zustand/ZustandOne';
 import SeconModal from './Form/SeconModal';
 
 const DoctorsModal = ({ modal, closeModal }) => {
-  const { initialIndex, nextForm, prevForm, formState } = useFormStore();
+  const { initialIndex, nextForm, prevForm, formState, resetFormState } = useFormStore();
 
   const handlePrevForm = () => {
     prevForm();
@@ -53,7 +53,7 @@ const DoctorsModal = ({ modal, closeModal }) => {
       return;
     }
     nextForm();
-  }; 
+  };
   const handleSave = (e) => {
     e.preventDefault();
     const {
@@ -69,6 +69,19 @@ const DoctorsModal = ({ modal, closeModal }) => {
       online,
       img,
     } = formState.value;
+    console.log({
+      name,
+      speciality,
+      language,
+      video,
+      year,
+      doctorSpec,
+      doctorAbout,
+      CV,
+      publish,
+      online,
+      img,
+    })
     if (initialIndex === 1) {
       if (
         !name ||
@@ -111,14 +124,14 @@ const DoctorsModal = ({ modal, closeModal }) => {
       const existingData = JSON.parse(localStorage.getItem('formState')) || [];
       const newData = [...existingData, dataToSave];
       localStorage.setItem('formState', JSON.stringify(newData));
+      resetFormState()
       closeModal();
     }
   };
   return (
     <div
-      className={`fixed min-h-screen inset-0  z-[1000] px-3 justify-center overflow-y-auto items-center ${
-        modal ? 'flex' : 'hidden'
-      }`}>
+      className={`fixed min-h-screen inset-0  z-[1000] px-3 justify-center overflow-y-auto items-center ${modal ? 'flex' : 'hidden'
+        }`}>
       <div
         className="fixed inset-0 -z-[1] bg-opacity bg-[rgba(0,0,0,0.5)]"
         onClick={() => closeModal()}></div>
