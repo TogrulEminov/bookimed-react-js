@@ -4,7 +4,7 @@ import Icons from '../assets/Icons/icons';
 const UploadImage = ({ modal, closeModal }) => {
   const [array, setArray] = useState([]);
   useEffect(() => {
-    const storedArray = JSON.parse(localStorage.getItem('imageArray'));
+    const storedArray = JSON.parse(localStorage.getItem('clinicPhoto'));
     if (storedArray) {
       setArray(storedArray);
     }
@@ -40,13 +40,13 @@ const UploadImage = ({ modal, closeModal }) => {
     const newArray = [...array];
     newArray.splice(index, 1);
     setArray(newArray);
-    localStorage.setItem('imageArray', JSON.stringify(newArray));
+    localStorage.setItem('clinicPhoto', JSON.stringify(newArray));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     closeModal();
-    localStorage.setItem('imageArray', JSON.stringify(array));
+    localStorage.setItem('clinicPhoto', JSON.stringify(array));
   };
   return (
     <div
@@ -66,9 +66,10 @@ const UploadImage = ({ modal, closeModal }) => {
         <div className="border border-[#ddd] rounded-xl p-4  items-center mb-4 flex flex-wrap ">
           <Icons.Warning />
           <span className="text-base  ml-4">
+            {' '}
             Add as many high quality photos as possible so clients can see the
             clinic in every detail. Maximum file size is 10 MB. Make sure your
-            photos have .jpg, .jpeg, file types
+            photos have .jpg, .jpeg, file types{' '}
           </span>
         </div>
         <div className="flex flex-wrap min-h-[350px] h-full lg:min-h-full lg:h-[350px] border border-[#dfe1e5]">
@@ -100,7 +101,7 @@ const UploadImage = ({ modal, closeModal }) => {
                       <img
                         src={array[index + 1]}
                         className="w-full h-full object-cover"
-                        alt={`text ${index + 2}`}
+                        alt={`Image ${index + 2}`}
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center">
