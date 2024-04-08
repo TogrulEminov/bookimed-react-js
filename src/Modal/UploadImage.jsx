@@ -101,7 +101,7 @@ const UploadImage = ({ modal, closeModal }) => {
                       <img
                         src={array[index + 1]}
                         className="w-full h-full object-cover"
-                        alt={`Image ${index + 2}`}
+                        alt={`added ${index + 2}`}
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center">

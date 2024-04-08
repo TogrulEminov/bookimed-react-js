@@ -7,6 +7,7 @@ import Icons from '../assets/Icons/icons';
 import Doctors from '../Section/Clinic/Doctors/Doctors';
 import ClinicLicence from '../Section/Clinic/ClinicLicence';
 import BeforeAndAfter from '../Section/Clinic/BeforeAndAfter';
+import Package from '../Section/Clinic/Package/Package';
 
 const Clinic = () => {
 
@@ -147,6 +148,7 @@ const Clinic = () => {
             <EditName />
             <EditFoundation />
           </div>
+          <Package/>
           <BeforeAndAfter />
           <Doctors />
 

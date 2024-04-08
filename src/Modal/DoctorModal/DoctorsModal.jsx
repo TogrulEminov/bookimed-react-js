@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import Icons from '../../assets/Icons/icons';
 import FirstForm from './Form/FirstForm';
 import DoctorSpec from '../../resources/DoctorSpeciality.json';

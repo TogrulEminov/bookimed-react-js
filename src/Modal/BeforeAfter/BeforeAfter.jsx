@@ -31,6 +31,7 @@ const BeforeAfter = ({ modal, closeModal }) => {
 
   const handleImage = (e) => {
     let image = e.target.files[0];
+    console.log(image);
     if (image) {
       fileBase64(image);
     }

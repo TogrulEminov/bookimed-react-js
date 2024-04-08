@@ -238,4 +238,54 @@ export default class Icons {
       </svg>
     );
   }
+  static Circle({ className }) {
+    return (
+      <svg
+        width="56"
+        height="56"
+        viewBox="0 0 56 56"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <circle
+          cx="28"
+          cy="28"
+          r="24"
+          fill="#DCFCE7"
+          stroke="#F0FDF4"
+          strokeWidth="8"></circle>
+        <path
+          d="M37.75 22H18.25C17.8358 22 17.5 22.3358 17.5 22.75V33.25C17.5 33.6642 17.8358 34 18.25 34H37.75C38.1642 34 38.5 33.6642 38.5 33.25V22.75C38.5 22.3358 38.1642 22 37.75 22Z"
+          stroke="#16A34A"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"></path>
+        <path
+          d="M28 31C29.6569 31 31 29.6569 31 28C31 26.3431 29.6569 25 28 25C26.3431 25 25 26.3431 25 28C25 29.6569 26.3431 31 28 31Z"
+          stroke="#16A34A"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"></path>
+        <path
+          d="M32.5 22L38.5 27.25"
+          stroke="#16A34A"
+          strokeLinecap="round"
+          strokeLinejoin="round"></path>
+        <path
+          d="M32.5 34L38.5 28.75"
+          stroke="#16A34A"
+          strokeLinecap="round"
+          strokeLinejoin="round"></path>
+        <path
+          d="M23.5 22L17.5 27.25"
+          stroke="#16A34A"
+          strokeLinecap="round"
+          strokeLinejoin="round"></path>
+        <path
+          d="M23.5 34L17.5 28.75"
+          stroke="#16A34A"
+          strokeLinecap="round"
+          strokeLinejoin="round"></path>
+      </svg>
+    );
+  }
 }

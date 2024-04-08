@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useFormStore } from '../../../zustand/ZustandOne';
 
 const ThirdModal = () => {
