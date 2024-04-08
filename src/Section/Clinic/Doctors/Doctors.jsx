@@ -1,10 +1,25 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import DoctorsModal from '../../../Modal/DoctorModal/DoctorsModal';
 import Icons from '../../../assets/Icons/icons';
 import useToggle from '../../../Hooks/useToggle';
+import DoctorsCard from '../../../Components/DoctorsCard';
 
 const Doctors = () => {
   const [open, handleOpen, closeModal] = useToggle();
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const storedArray = JSON.parse(localStorage.getItem('formState'));
+    if (storedArray) {
+      setData(storedArray);
+    }
+  }, []);
+
+  const deleteItemByIndex = (index) => {
+    const newArray = [...data];
+    newArray.splice(index, 1);
+    setData(newArray);
+    localStorage.setItem('formState', JSON.stringify(newArray));
+  };
   return (
     <>
       <div className="bg-white rounded-3xl mt-3 md:shadow-own1 p-3 md:p-8 ">
@@ -23,6 +38,19 @@ const Doctors = () => {
               </div>
             </button>
           </div>
+          {data &&
+            data?.map((item, index) => {
+              const year = new Date().getFullYear() - item?.year;
+              return (
+                <DoctorsCard
+                  deleteItemByIndex={() => deleteItemByIndex(index)}
+                  key={index}
+                  img={item?.img}
+                  name={item?.name}
+                  year={year}
+                />
+              );
+            })}
         </div>
       </div>
       <DoctorsModal modal={open} closeModal={closeModal} />

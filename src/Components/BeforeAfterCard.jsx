@@ -3,7 +3,12 @@ import Icons from '../assets/Icons/icons';
 import BeforAfterSecond from '../Modal/BeforeAfter/BeforAfterSecond';
 import useToggle from '../Hooks/useToggle';
 
-const BeforeAfterCard = ({ image, deleteItemByIndex, handleSecondOpen,index }) => {
+const BeforeAfterCard = ({
+  image,
+  deleteItemByIndex,
+  handleSecondOpen,
+  index,
+}) => {
   const [open, handleOpen, closeModal] = useToggle();
 
   const openModal = () => {
@@ -17,7 +22,7 @@ const BeforeAfterCard = ({ image, deleteItemByIndex, handleSecondOpen,index }) =
           <img
             src={image}
             alt="my "
-            className="w-full object-cover max-h-[250px] lg:max-w-full h-full"
+            className="w-full object-cover h-[250px] lg:max-w-full"
           />
           <button
             onClick={openModal}
