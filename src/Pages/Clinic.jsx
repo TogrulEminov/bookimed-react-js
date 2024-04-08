@@ -6,11 +6,9 @@ import EditFoundation from '../Section/Clinic/EditFoundation';
 import Icons from '../assets/Icons/icons';
 import Doctors from '../Section/Clinic/Doctors/Doctors';
 import ClinicLicence from '../Section/Clinic/ClinicLicence';
-import BeforeAndAfter from '../Section/Clinic/BeforeAndAfter';
 import Package from '../Section/Clinic/Package/Package';
 
 const Clinic = () => {
-
   const array = JSON.parse(localStorage.getItem('clinicPhoto'));
   const edit =
     localStorage.getItem('editedValue') ||
@@ -143,20 +141,17 @@ const Clinic = () => {
         </div>
         <div className="col-12 md:col-md-12 lg:col-lg-8 xl:col-xl-9">
           <div className="bg-white rounded-3xl md:shadow-own1 p-3 md:p-8">
-            <ClinicsPhoto  />
+            <ClinicsPhoto />
             <WarningSection />
             <EditName />
             <EditFoundation />
           </div>
-          <Package/>
-          <BeforeAndAfter />
+          <Package />
           <Doctors />
 
           <ClinicLicence />
         </div>
       </div>
-
-     
     </>
   );
 };
