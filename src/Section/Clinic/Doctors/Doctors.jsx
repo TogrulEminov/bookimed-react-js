@@ -24,7 +24,6 @@ const Doctors = () => {
     <>
       <div className="bg-white rounded-3xl mt-3 md:shadow-own1 p-3 md:p-8 ">
         <h3 className="font-semibold text-2xl mb-5">Doctors (0)</h3>
-
         <div className="row gap-y-2">
           <div className="col-12 xl:col-xl-3 lg:col-lg-4 md:col-md-6">
             <button

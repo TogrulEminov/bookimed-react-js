@@ -7,6 +7,7 @@ import Icons from '../assets/Icons/icons';
 import Doctors from '../Section/Clinic/Doctors/Doctors';
 import ClinicLicence from '../Section/Clinic/ClinicLicence';
 import Package from '../Section/Clinic/Package/Package';
+import BeforeSection from '../Section/Clinic/BeforeSection/BeforeSection';
 
 const Clinic = () => {
   const array = JSON.parse(localStorage.getItem('clinicPhoto'));
@@ -147,6 +148,7 @@ const Clinic = () => {
             <EditFoundation />
           </div>
           <Package />
+          <BeforeSection />
           <Doctors />
 
           <ClinicLicence />
