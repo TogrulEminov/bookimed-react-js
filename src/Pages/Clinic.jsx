@@ -8,6 +8,8 @@ import Doctors from '../Section/Clinic/Doctors/Doctors';
 import ClinicLicence from '../Section/Clinic/ClinicLicence';
 import Package from '../Section/Clinic/Package/Package';
 import BeforeSection from '../Section/Clinic/BeforeSection/BeforeSection';
+import Description from '../Section/Clinic/Description/Description';
+import Certificates from '../Section/Clinic/Certificates/Certificates';
 
 const Clinic = () => {
   const array = JSON.parse(localStorage.getItem('clinicPhoto'));
@@ -148,6 +150,12 @@ const Clinic = () => {
             <EditFoundation />
           </div>
           <Package />
+          <div className="bg-white rounded-3xl d:shadow-own1 p-3 md:p-8 my-4">
+            <Description />
+          </div>
+          <div className="bg-white rounded-3xl d:shadow-own1 p-3 md:p-8 my-4">
+            <Certificates />
+          </div>
           <BeforeSection />
           <Doctors />
 

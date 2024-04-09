@@ -74,7 +74,7 @@ const BeforeModal = ({ closeModal, modal }) => {
                   <img
                     src={imgPreview || noImage}
                     alt="my preview"
-                    className="w-full h-full"
+                    className="w-full object-cover h-full"
                   />
                 </figure>
               ) : (
@@ -139,7 +139,7 @@ const BeforeModal = ({ closeModal, modal }) => {
               />
             </label>
           </div>
-          <div className="lg:col-lg-6">
+          <div className="col-12">
             <button
               onClick={handleSubmit}
               className="max-w-[300px] w-full border rounded-3xl flex items-center justify-center bg-red-400 p-2 mx-auto my-4 text-white text-lg">

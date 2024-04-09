@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "img": "https://s3.eu-central-1.amazonaws.com/bookimed/accreditations/6194fa5077fec.jpeg",
+    "title": "Accreditation Canada Diamond Status Level⇗"
+  },
+  {
+    "id": 2,
+    "img": "https://s3.eu-central-1.amazonaws.com/bookimed/accreditations/618bc1625fca4.jpeg",
+    "title": "American Association of Orthodontists ⇗"
+  },
+  {
+    "id": 3,
+    "img": "https://s3.eu-central-1.amazonaws.com/bookimed/accreditations/619b4c38f036b.jpeg",
+    "title": "QHA Trent Accreditation ⇗"
+  },
+  {
+    "id": 4,
+    "img": "https://s3.eu-central-1.amazonaws.com/bookimed/accreditations/618bd5b51899e.jpeg",
+    "title": "American College of Obstetricians and Gynecologists  ⇗"
+  }
+]

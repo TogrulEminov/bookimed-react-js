@@ -1,36 +1,14 @@
-import React, { useEffect, useState } from 'react';
 import SelectOne from '../../Components/SelectOne';
 import { useBeforeStore } from '../../zustand/ZustandOne';
 import Icons from '../../assets/Icons/icons';
 import noImage from '../../assets/noImage.jpg';
-const BeforeModal2 = ({
-  modal,
-  closeModal,
-  deleteItemByIndex,
-  index,
-  editData,
-}) => {
-    const { beforeState, uptadeBeforeState, resetBeforeState } = useBeforeStore();
+const BeforeModal2 = ({ modal, closeModal, add, deleteItemByIndex }) => {
+  const { beforeState, uptadeBeforeState, resetBeforeState } = useBeforeStore();
   const setDoctors = (newDoctors) => {
     uptadeBeforeState({
       value: { ...beforeState.value, doctors: newDoctors },
     });
   };
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    const storedArray = JSON.parse(localStorage.getItem('beforeAfter'));
-    if (storedArray) {
-      setData(storedArray);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (editData) {
-      uptadeBeforeState({ value: editData });
-    } else {
-      resetBeforeState();
-    }
-  }, [editData, resetBeforeState, uptadeBeforeState]);
 
   const doctors = JSON.parse(localStorage.getItem('formState'));
 
@@ -45,17 +23,23 @@ const BeforeModal2 = ({
   };
 
   const handleSubmit = () => {
-    closeModal();  
     const storedArray = JSON.parse(localStorage.getItem('beforeAfter')) || [];
-
-    if (editData) {
-      storedArray[index] = beforeState.value; 
-    } else {
-      storedArray.push(beforeState.value); 
+    const indexToEdit = storedArray.findIndex(
+      (item) => item.procedure === add.procedure
+    );
+    if (indexToEdit !== -1) {
+      storedArray[indexToEdit] = {
+        procedure: add.procedure,
+        doctors: beforeState.value.doctors,
+        images: add.images,
+        year: beforeState.value.year,
+        age: beforeState.value.age,
+      };
+      localStorage.setItem('beforeAfter', JSON.stringify(storedArray));
     }
-    localStorage.setItem('beforeAfter', JSON.stringify(storedArray));
+    resetBeforeState();
+    closeModal();
   };
-
   return (
     <div
       className={`fixed min-h-screen inset-0  z-[1000] px-3 justify-center overflow-y-auto items-center ${
@@ -86,9 +70,9 @@ const BeforeModal2 = ({
             <div>
               <figure className="w-full relative  h-[250px] border rounded-sm bg-[#e7e7e7] border-[#ababab]">
                 <img
-                  src={data?.images || noImage}
+                  src={add?.images || noImage}
                   alt="my preview"
-                  className="w-full h-full"
+                  className="w-full object-cover h-full"
                 />
               </figure>
             </div>
@@ -96,7 +80,7 @@ const BeforeModal2 = ({
           <div className="lg:col-lg-6">
             <label htmlFor="" className="block my-2">
               <span className="mb-2 block">Procedure</span>
-              <SelectOne disabled={true} title={data?.procedur} />
+              <SelectOne disabled={true} title={add?.procedure} />
             </label>
             <label htmlFor="" className="block my-2">
               <span className="mb-2 block">Doctors</span>
@@ -131,10 +115,13 @@ const BeforeModal2 = ({
               />
             </label>
           </div>
-          <div className="lg:col-lg-6">
+          <div className="col-12">
             <div className="flex flex-wrap gap-2">
               <button
-                onClick={deleteItemByIndex}
+                onClick={() => {
+                  deleteItemByIndex();
+                  closeModal();
+                }}
                 className="max-w-[300px] w-full border rounded-3xl flex items-center justify-center bg-red-400 p-2 mx-auto my-4 text-white text-lg">
                 Delete
               </button>
